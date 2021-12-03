@@ -1,0 +1,52 @@
+{
+    "name": "frostaly/template",
+    "description": "The frostaly template component.",
+    "keywords": [
+        "frostaly",
+        "template"
+    ],
+    "license": "GPL-3.0-or-later",
+    "support": {
+        "issues": "https://github.com/frostaly/template/issues",
+        "source": "https://github.com/frostaly/template"
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "latte/latte": "^2.10",
+        "league/plates": "^3.4",
+        "mikey179/vfsstream": "^1.6",
+        "phpstan/phpstan": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "twig/twig": "^3.3"
+    },
+    "suggest": {
+        "latte/latte": "For using the LatteTemplateRenderer.",
+        "league/plates": "For using the PlatesTemplateRenderer.",
+        "twig/twig": "For using the TwigTemplateRenderer."
+    },
+    "autoload": {
+        "psr-4": {
+            "Frostaly\\Template\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Frostaly\\Template\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@phpunit",
+            "@phpstan"
+        ],
+        "phpunit": "XDEBUG_MODE=coverage phpunit",
+        "phpstan": "phpstan analyse src --memory-limit=-1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
