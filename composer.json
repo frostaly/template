@@ -1,11 +1,12 @@
 {
     "name": "frostaly/template",
     "description": "The frostaly template component.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
     "keywords": [
         "frostaly",
         "template"
     ],
-    "license": "GPL-3.0-or-later",
     "support": {
         "issues": "https://github.com/frostaly/template/issues",
         "source": "https://github.com/frostaly/template"
@@ -37,16 +38,13 @@
         }
     },
     "scripts": {
-        "test": [
-            "@phpunit",
-            "@phpstan"
-        ],
+        "test": ["@phpunit", "@phpstan"],
         "phpunit": "XDEBUG_MODE=coverage phpunit",
         "phpstan": "phpstan analyse src --memory-limit=-1"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "config": {
         "sort-packages": true
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
