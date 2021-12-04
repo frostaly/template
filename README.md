@@ -1,6 +1,5 @@
 # Template Component
 [![Source Code](https://img.shields.io/badge/source-frostaly/template-blue.svg)](https://github.com/frostaly/template)
-[![Latest Version](https://img.shields.io/github/tag/frostaly/template.svg)](https://github.com/frostaly/template/releases)
 [![CI Status](https://github.com/frostaly/template/workflows/Quality%20Assurance/badge.svg)](https://github.com/frostaly/template/actions?query=workflow%3A%22Quality+Assurance%22)
 [![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg)](https://github.com/frostaly/template/blob/master/LICENSE)
 
