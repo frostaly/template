@@ -12,17 +12,18 @@ $ composer require frostaly/template
 ```
 
 ```php
-use Frostaly\Template\Renderers\PlatesTemplateRenderer;
-use Frostaly\Template\Renderers\TwigTemplateRenderer;
+use Frostaly\Template\Adapters\PlatesRendererAdapter;
+use Frostaly\Template\Adapters\TwigRendererAdapter;
 use Frostaly\Template\TemplateEngine;
+use Frostaly\Template\TemplateRenderer;
 
 // Using the default namespace
-$defaultRenderer = new PlatesTemplateRenderer('path/to/views');
+$defaultRenderer = new TemplateRenderer(new PlatesRendererAdapter('path/to/views'));
 $templateEngine = new TemplateEngine($defaultRenderer);
 echo $templateEngine->render('welcome', ['title' => 'frostaly']);
 
 // Using the frostaly namespace
-$twigRenderer = new TwigTemplateRenderer('path/to/frostaly');
+$twigRenderer = new TemplateRenderer(new TwigRendererAdapter('path/to/frostaly'));
 $templateEngine->setRenderer($twigRenderer, 'frostaly');
 echo $templateEngine->render('frostaly::home');
 ```
