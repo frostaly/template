@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Template\Renderers;
+namespace Frostaly\Template\Adapters;
 
-use Frostaly\Template\TemplateRendererInterface;
+use Frostaly\Template\Contracts\RendererAdapterInterface;
 use League\Plates\Engine;
 
-class PlatesTemplateRenderer implements TemplateRendererInterface
+class PlatesRendererAdapter implements RendererAdapterInterface
 {
     protected Engine $engine;
 

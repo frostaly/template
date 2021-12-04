@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Template\Renderers;
+namespace Frostaly\Template\Adapters;
 
-use Frostaly\Template\TemplateRendererInterface;
+use Frostaly\Template\Contracts\RendererAdapterInterface;
 use Latte\Engine;
 use Latte\Loaders\FileLoader;
 
-class LatteTemplateRenderer implements TemplateRendererInterface
+class LatteRendererAdapter implements RendererAdapterInterface
 {
     protected Engine $engine;
 

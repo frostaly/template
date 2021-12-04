@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Template;
+namespace Frostaly\Template\Contracts;
 
-interface TemplateRendererInterface
+interface RendererAdapterInterface
 {
     /**
      * Check whether a template exists.

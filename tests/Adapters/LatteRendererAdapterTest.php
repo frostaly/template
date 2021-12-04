@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Tests\Template\Renderers;
+namespace Frostaly\Tests\Template\Adapters;
 
-use Frostaly\Template\Renderers\LatteTemplateRenderer;
+use Frostaly\Template\Adapters\LatteRendererAdapter;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
 
-class LatteTemplateRendererTest extends TestCase
+class LatteRendererAdapterTest extends TestCase
 {
-    private LatteTemplateRenderer $renderer;
+    private LatteRendererAdapter $renderer;
 
     protected function setUp(): void
     {
         $storage = vfsStream::setup('templates');
         $storage->addChild(vfsStream::newFile('template')->setContent('foo: {$foo}'));
-        $this->renderer = new LatteTemplateRenderer(vfsStream::url('templates'));
+        $this->renderer = new LatteRendererAdapter(vfsStream::url('templates'));
     }
 
     public function testExists(): void

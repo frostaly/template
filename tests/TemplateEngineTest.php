@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Frostaly\Tests\Template;
 
 use Frostaly\Template\TemplateEngine;
-use Frostaly\Template\TemplateRendererInterface;
+use Frostaly\Template\TemplateRenderer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
@@ -13,33 +13,13 @@ use RuntimeException;
 
 class TemplateEngineTest extends TestCase
 {
-    private TemplateRendererInterface|MockObject $renderer;
+    private TemplateRenderer|MockObject $renderer;
     private TemplateEngine $engine;
 
     protected function setUp(): void
     {
-        $this->renderer = $this->createMock(TemplateRendererInterface::class);
+        $this->renderer = $this->createMock(TemplateRenderer::class);
         $this->engine = new TemplateEngine($this->renderer);
-    }
-
-    public function testGetDefaultRenderer(): void
-    {
-        $this->assertSame($this->renderer, $this->engine->getRenderer());
-    }
-
-    public function testGetInvalidRenderer(): void
-    {
-        $this->expectException(RuntimeException::class);
-        $this->engine->getRenderer('¯\_(ツ)_/¯');
-    }
-
-    public function testSetGetRenderer(): void
-    {
-        /** @var TemplateRendererInterface|Stub */
-        $renderer = $this->createStub(TemplateRendererInterface::class);
-        $this->engine->setRenderer($renderer, 'namespace');
-        $this->assertSame($renderer, $this->engine->getRenderer('namespace'));
-        $this->assertNotSame($renderer, $this->engine->getRenderer());
     }
 
     public function testExists(): void
@@ -60,19 +40,26 @@ class TemplateEngineTest extends TestCase
         $this->assertEquals('template.html:[foo,bar]', $this->engine->render('template.html', ['foo', 'bar']));
     }
 
-    public function testExtension(): void
+    public function testSetGetRenderer(): void
     {
-        $engine = new TemplateEngine($this->renderer, 'ext');
-        $this->renderer->expects($this->once())->method('exists')->with($this->stringEndsWith('.ext'));
-        $this->renderer->expects($this->once())->method('render')->with($this->stringEndsWith('.ext'));
-        $engine->exists('template');
-        $engine->render('template');
+        /** @var TemplateRenderer|Stub */
+        $renderer = $this->createStub(TemplateRenderer::class);
+        $this->engine->setRenderer($renderer, 'namespace');
+        $this->assertSame($renderer, $this->engine->getRenderer('namespace'));
+        $this->assertSame($this->renderer, $this->engine->getRenderer());
+        $this->assertNotSame($renderer, $this->engine->getRenderer());
+    }
+
+    public function testGetInvalidRenderer(): void
+    {
+        $this->expectException(RuntimeException::class);
+        $this->engine->getRenderer('¯\_(ツ)_/¯');
     }
 
     public function testNamespace(): void
     {
-        /** @var TemplateRendererInterface|MockObject */
-        $renderer = $this->createMock(TemplateRendererInterface::class);
+        /** @var TemplateRenderer|MockObject */
+        $renderer = $this->createMock(TemplateRenderer::class);
         $renderer->expects($this->once())->method('exists');
         $renderer->expects($this->once())->method('render');
         $this->engine->setRenderer($renderer, 'namespace');

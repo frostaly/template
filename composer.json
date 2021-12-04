@@ -38,7 +38,10 @@
         }
     },
     "scripts": {
-        "test": ["@phpunit", "@phpstan"],
+        "test": [
+            "@phpunit",
+            "@phpstan"
+        ],
         "phpunit": "XDEBUG_MODE=coverage phpunit",
         "phpstan": "phpstan analyse src --memory-limit=-1"
     },

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Tests\Template\Renderers;
+namespace Frostaly\Tests\Template\Adapters;
 
-use Frostaly\Template\Renderers\PlatesTemplateRenderer;
+use Frostaly\Template\Adapters\PlatesRendererAdapter;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
 
-class PlatesTemplateRendererTest extends TestCase
+class PlatesRendererAdapterTest extends TestCase
 {
-    private PlatesTemplateRenderer $renderer;
+    private PlatesRendererAdapter $renderer;
 
     protected function setUp(): void
     {
         $storage = vfsStream::setup('templates');
         $storage->addChild(vfsStream::newFile('template')->setContent('foo: <?=$this->e($foo)?>'));
-        $this->renderer = new PlatesTemplateRenderer(vfsStream::url('templates'));
+        $this->renderer = new PlatesRendererAdapter(vfsStream::url('templates'));
     }
 
     public function testExists(): void
