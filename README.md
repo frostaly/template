@@ -29,6 +29,6 @@ echo $templateEngine->render('frostaly::home');
 
 ## Current Adapters
 The component provides renderers for the following libraries.
-* [Twig](https://twig.symfony.com/) - from the symfony framework
+* [Twig](https://twig.symfony.com/) - from the Symfony framework
 * [Latte](https://latte.nette.org/) - from the Nette framework
 * [Plates](https://platesphp.com/) - from the PHP League
