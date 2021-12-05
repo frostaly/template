@@ -3,7 +3,7 @@
 [![CI Status](https://github.com/frostaly/template/workflows/Quality%20Assurance/badge.svg)](https://github.com/frostaly/template/actions?query=workflow%3A%22Quality+Assurance%22)
 [![Software License](https://img.shields.io/badge/license-GPL-brightgreen.svg)](https://github.com/frostaly/template/blob/master/LICENSE)
 
-The Template component provides a simple interface to interact with multiple templating libraries.
+The template component provides a simple interface to interact with multiple templating libraries.
 
 ## Getting Started
 
