@@ -22,14 +22,14 @@ $defaultRenderer = new TemplateRenderer(new PlatesRendererAdapter('path/to/views
 $templateEngine = new TemplateEngine($defaultRenderer);
 echo $templateEngine->render('welcome', ['title' => 'frostaly']);
 
-// Using the frostaly namespace
+// Using a custom namespace
 $twigRenderer = new TemplateRenderer(new TwigRendererAdapter('path/to/frostaly'));
 $templateEngine->setRenderer($twigRenderer, 'frostaly');
 echo $templateEngine->render('frostaly::home');
 ```
 
 ## Current Adapters
-The component provides renderers for the following libraries.
+The component provides adapters for the following libraries.
 * [Twig](https://twig.symfony.com/) - from the Symfony framework
 * [Latte](https://latte.nette.org/) - from the Nette framework
 * [Plates](https://platesphp.com/) - from the PHP League
