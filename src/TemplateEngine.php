@@ -19,9 +19,11 @@ class TemplateEngine
     /**
      * Create the Engine that renders templates.
      */
-    public function __construct(TemplateRenderer $defaultRenderer)
+    public function __construct(?TemplateRenderer $defaultRenderer = null)
     {
-        $this->renderers[self::DEFAULT_NAMESPACE] = $defaultRenderer;
+        if ($defaultRenderer) {
+            $this->renderers[self::DEFAULT_NAMESPACE] = $defaultRenderer;
+        }
     }
 
     /**
