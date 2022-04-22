@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Frostaly\Template\Adapters;
 
 use Frostaly\Template\Contracts\RendererAdapterInterface;
-use Twig\Environment;
+use Twig\Environment as Engine;
 use Twig\Loader;
 
 class TwigRendererAdapter implements RendererAdapterInterface
 {
-    protected Environment $environment;
+    protected Engine $engine;
 
     public function __construct(
         protected string $viewPath,
@@ -22,7 +22,7 @@ class TwigRendererAdapter implements RendererAdapterInterface
      */
     public function exists(string $name): bool
     {
-        return $this->getEnvironment()->getLoader()->exists($name);
+        return $this->getEngine()->getLoader()->exists($name);
     }
 
     /**
@@ -30,15 +30,23 @@ class TwigRendererAdapter implements RendererAdapterInterface
      */
     public function render(string $name, array $params = []): string
     {
-        return $this->getEnvironment()->render($name, $params);
+        return $this->getEngine()->render($name, $params);
     }
 
     /**
-     * Get the Twig template Environment.
+     * Get the Twig template Engine.
      */
-    protected function getEnvironment(): Environment
+    protected function getEngine(): Engine
     {
-        return $this->environment ??= new Environment(
+        return $this->engine ??= $this->createEngine();
+    }
+
+    /**
+     * Get the Twig template Engine.
+     */
+    protected function createEngine(): Engine
+    {
+        return new Engine(
             new Loader\FilesystemLoader($this->viewPath),
             ["cache" => $this->cachePath ?? false],
         );
