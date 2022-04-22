@@ -23,9 +23,9 @@
         "twig/twig": "^3.3"
     },
     "suggest": {
-        "latte/latte": "For using the LatteTemplateRenderer.",
-        "league/plates": "For using the PlatesTemplateRenderer.",
-        "twig/twig": "For using the TwigTemplateRenderer."
+        "latte/latte": "To use the Latte Adapter.",
+        "league/plates": "To use the Plates Adapter.",
+        "twig/twig": "To use the Twig Adapter."
     },
     "autoload": {
         "psr-4": {
