@@ -11,7 +11,9 @@ class TemplateRenderer
     public function __construct(
         private RendererAdapterInterface $renderer,
         private string $extension = 'html',
-    ) {}
+    ) {
+        $this->extension = ltrim($extension, '.');
+    }
 
     /**
      * Check whether a template exists.
