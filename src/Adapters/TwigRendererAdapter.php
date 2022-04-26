@@ -42,7 +42,7 @@ class TwigRendererAdapter implements RendererAdapterInterface
     }
 
     /**
-     * Get the Twig template Engine.
+     * Create the Twig template Engine.
      */
     protected function createEngine(): Engine
     {
