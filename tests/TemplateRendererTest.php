@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Tests\Template;
+namespace Frostaly\Template\Tests;
 
 use Frostaly\Template\Contracts\RendererAdapterInterface;
 use Frostaly\Template\TemplateRenderer;

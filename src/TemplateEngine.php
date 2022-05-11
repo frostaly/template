@@ -56,7 +56,7 @@ class TemplateEngine
     public function getRenderer(string $namespace = self::DEFAULT_NAMESPACE): TemplateRenderer
     {
         if (!isset($this->renderers[$namespace])) {
-            throw new \RuntimeException("Namespace \"$namespace\" does not exist");
+            throw new \InvalidArgumentException("Namespace \"$namespace\" does not exist.");
         }
         return $this->renderers[$namespace];
     }

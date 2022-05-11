@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Frostaly\Tests\Template;
+namespace Frostaly\Template\Tests;
 
 use Frostaly\Template\TemplateEngine;
 use Frostaly\Template\TemplateRenderer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
-use RuntimeException;
 
 class TemplateEngineTest extends TestCase
 {
@@ -42,7 +41,7 @@ class TemplateEngineTest extends TestCase
 
     public function testSetGetRenderer(): void
     {
-        /** @var TemplateRenderer|Stub */
+        /** @var TemplateRenderer|Stub $renderer */
         $renderer = $this->createStub(TemplateRenderer::class);
         $this->engine->setRenderer($renderer, 'namespace');
         $this->assertSame($renderer, $this->engine->getRenderer('namespace'));
@@ -52,13 +51,13 @@ class TemplateEngineTest extends TestCase
 
     public function testGetInvalidRenderer(): void
     {
-        $this->expectException(RuntimeException::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->engine->getRenderer('¯\_(ツ)_/¯');
     }
 
     public function testNamespace(): void
     {
-        /** @var TemplateRenderer|MockObject */
+        /** @var TemplateRenderer|MockObject $renderer */
         $renderer = $this->createMock(TemplateRenderer::class);
         $renderer->expects($this->once())->method('exists');
         $renderer->expects($this->once())->method('render');

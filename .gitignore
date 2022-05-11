@@ -1,7 +1,5 @@
-.DS_Store
-.phpunit.result.cache
+coverage/
+vendor/
 composer.lock
-phpunit.xml
-phpstan.neon
-vendor
-coverage
+.phpcs-cache
+.phpunit-cache
