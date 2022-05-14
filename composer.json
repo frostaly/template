@@ -46,7 +46,7 @@
         ],
         "phpcs": "phpcs",
         "phpunit": "XDEBUG_MODE=coverage phpunit",
-        "phpstan": "phpstan analyse src --memory-limit=-1"
+        "phpstan": "phpstan analyse"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
