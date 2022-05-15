@@ -18,7 +18,7 @@ The template component provides a simple interface to interact with multiple tem
 This library is installable via [composer](https://getcomposer.org/):
 
 ```
-$ composer require frostaly/var-exporter
+$ composer require frostaly/template
 ```
 
 ## Quickstart
