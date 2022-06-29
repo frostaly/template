@@ -7,7 +7,7 @@ namespace Frostaly\Template\Tests\Adapters;
 use Frostaly\Template\Adapters\LatteRendererAdapter;
 use org\bovigo\vfs\vfsStream;
 
-class LatteRendererAdapterTest extends AbstractRendererTest
+class LatteRendererAdapterTest extends AbstractRendererAdapterTest
 {
     protected function setUp(): void
     {

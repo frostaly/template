@@ -7,7 +7,7 @@ namespace Frostaly\Template\Tests\Adapters;
 use Frostaly\Template\Adapters\PlatesRendererAdapter;
 use org\bovigo\vfs\vfsStream;
 
-class PlatesRendererAdapterTest extends AbstractRendererTest
+class PlatesRendererAdapterTest extends AbstractRendererAdapterTest
 {
     protected function setUp(): void
     {

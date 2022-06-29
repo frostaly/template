@@ -7,7 +7,7 @@ namespace Frostaly\Template\Tests\Adapters;
 use Frostaly\Template\Adapters\TwigRendererAdapter;
 use org\bovigo\vfs\vfsStream;
 
-class TwigRendererAdapterTest extends AbstractRendererTest
+class TwigRendererAdapterTest extends AbstractRendererAdapterTest
 {
     protected function setUp(): void
     {

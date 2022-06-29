@@ -7,7 +7,7 @@ namespace Frostaly\Template\Tests\Adapters;
 use Frostaly\Template\Contracts\RendererAdapterInterface;
 use PHPUnit\Framework\TestCase;
 
-abstract class AbstractRendererTest extends TestCase
+abstract class AbstractRendererAdapterTest extends TestCase
 {
     protected RendererAdapterInterface $renderer;
 
